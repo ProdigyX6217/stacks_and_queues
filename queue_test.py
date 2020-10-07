@@ -1,72 +1,33 @@
-#!python
+from Queue import Queue
 
-from queue import Queue
-import unittest
+#explain dynamic array queue
+'''#CREATE a queue
+#front at index 0
+#back at index n - 1
+my_queue = []
 
+#UPDATE, ADD
+#enqueue
+my_queue.append("A")
+my_queue.append("B")
+my_queue.append("C")
 
-class QueueTest(unittest.TestCase):
+#DELETE
+#dequeue
+my_queue.pop(0)
 
-    def test_init(self):
-        q = Queue()
-        assert q.front() is None
-        assert q.length() == 0
-        assert q.is_empty() is True
+#READ 
+#front
+print(my_queue[0])'''
 
-    def test_init_with_list(self):
-        q = Queue(['A', 'B', 'C'])
-        assert q.front() == 'A'
-        assert q.length() == 3
-        assert q.is_empty() is False
+#CREATE
+my_queue = Queue()
 
-    def test_length(self):
-        q = Queue()
-        assert q.length() == 0
-        q.enqueue('A')
-        assert q.length() == 1
-        q.enqueue('B')
-        assert q.length() == 2
-        q.dequeue()
-        assert q.length() == 1
-        q.dequeue()
-        assert q.length() == 0
+my_queue.enqueue("A")
+#["A"]
+my_queue.enqueue("B")
+#["A", "B"]
+my_queue.enqueue("C")
+#["A", "B", "C"]
 
-    def test_enqueue(self):
-        q = Queue()
-        q.enqueue('A')
-        assert q.front() == 'A'
-        assert q.length() == 1
-        q.enqueue('B')
-        assert q.front() == 'A'
-        assert q.length() == 2
-        q.enqueue('C')
-        assert q.front() == 'A'
-        assert q.length() == 3
-        assert q.is_empty() is False
-
-    def test_front(self):
-        q = Queue()
-        assert q.front() is None
-        q.enqueue('A')
-        assert q.front() == 'A'
-        q.enqueue('B')
-        assert q.front() == 'A'
-        q.dequeue()
-        assert q.front() == 'B'
-        q.dequeue()
-        assert q.front() is None
-
-    def test_dequeue(self):
-        q = Queue(['A', 'B', 'C'])
-        assert q.dequeue() == 'A'
-        assert q.length() == 2
-        assert q.dequeue() == 'B'
-        assert q.length() == 1
-        assert q.dequeue() == 'C'
-        assert q.length() == 0
-        assert q.is_empty() is True
-        with self.assertRaises(ValueError):
-            q.dequeue()
-
-
-if __name__ == '__main__':
-    unittest.main()
+print(my_queue.front())

@@ -1,72 +1,34 @@
-#!python
+from Stack import Stack
 
-from stack import Stack
-import unittest
+#TODO: explain dynamic array stack
 
+'''#Implementing a stack with a dynamic array
 
-class StackTest(unittest.TestCase):
+#CREATE
+my_stack = []
 
-    def test_init(self):
-        s = Stack()
-        assert s.peek() is None
-        assert s.length() == 0
-        assert s.is_empty() is True
+#UPDATE
+#ADD
+item = "A"
+my_stack.append(item)
+my_stack.append("B")
+my_stack.append("C")
 
-    def test_init_with_list(self):
-        s = Stack(['A', 'B', 'C'])
-        assert s.peek() == 'C'
-        assert s.length() == 3
-        assert s.is_empty() is False
+#DELETE
+#remove the last item
+my_stack.pop(len(my_stack) - 1)
 
-    def test_length(self):
-        s = Stack()
-        assert s.length() == 0
-        s.push('A')
-        assert s.length() == 1
-        s.push('B')
-        assert s.length() == 2
-        s.pop()
-        assert s.length() == 1
-        s.pop()
-        assert s.length() == 0
+#READ
+print(my_stack[len(my_stack) - 1])'''
 
-    def test_push(self):
-        s = Stack()
-        s.push('A')
-        assert s.peek() == 'A'
-        assert s.length() == 1
-        s.push('B')
-        assert s.peek() == 'B'
-        assert s.length() == 2
-        s.push('C')
-        assert s.peek() == 'C'
-        assert s.length() == 3
-        assert s.is_empty() is False
+my_stack = Stack()
 
-    def test_peek(self):
-        s = Stack()
-        assert s.peek() is None
-        s.push('A')
-        assert s.peek() == 'A'
-        s.push('B')
-        assert s.peek() == 'B'
-        s.pop()
-        assert s.peek() == 'A'
-        s.pop()
-        assert s.peek() is None
+my_stack.push("hello")
+my_stack.push("hey")
+my_stack.push("hi")
 
-    def test_pop(self):
-        s = Stack(['A', 'B', 'C'])
-        assert s.pop() == 'C'
-        assert s.length() == 2
-        assert s.pop() == 'B'
-        assert s.length() == 1
-        assert s.pop() == 'A'
-        assert s.length() == 0
-        assert s.is_empty() is True
-        with self.assertRaises(ValueError):
-            s.pop()
+print(my_stack.peek())
 
+my_stack.my_pop()
 
-if __name__ == '__main__':
-    unittest.main()
+print(my_stack.peek())
